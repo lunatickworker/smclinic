@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #f8faff;
+  --foreground: #1e293b;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5ff;
+  --secondary-foreground: #475569;
+  --muted: #e2e8f5;
+  --muted-foreground: #64748b;
+  --accent: #dbeafe;
+  --accent-foreground: #1e40af;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f5;
+  --input: transparent;
+  --input-background: #f8faff;
+  --switch-background: #cbd5e1;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --ring: #3b82f6;
+  --chart-1: #3b82f6;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #ef4444;
+  --chart-5: #8b5cf6;
+  --radius: 1rem;
+  --medical-blue: #3b82f6;
+  --medical-blue-light: #dbeafe;
+  --medical-blue-dark: #1e40af;
+  --medical-green: #10b981;
+  --medical-green-light: #d1fae5;
+  --medical-purple: #8b5cf6;
+  --medical-purple-light: #ede9fe;
+  --medical-orange: #f59e0b;
+  --medical-orange-light: #fef3c7;
+  --medical-gray: #64748b;
+  --medical-gray-light: #f1f5f9;
+  --medical-text: #1e293b;
+  --medical-text-light: #475569;
+  --sidebar: #f1f5ff;
+  --sidebar-foreground: #1e293b;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e2e8f5;
+  --sidebar-accent-foreground: #475569;
+  --sidebar-border: #d1d5db;
+  --sidebar-ring: #3b82f6;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #f8faff 0%, #e3f2fd 25%, #f3e5f5 50%, #e8f5e8 75%, #fff3e0 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+      conic-gradient(from 0deg at 50% 50%, rgba(59, 130, 246, 0.05) 0deg, rgba(139, 92, 246, 0.05) 120deg, rgba(16, 185, 129, 0.05) 240deg, rgba(59, 130, 246, 0.05) 360deg);
+    background-size: 800px 800px, 600px 600px, 400px 400px, 200px 200px;
+    background-position: 0% 0%, 100% 100%, 50% 50%, 25% 75%;
+    animation: backgroundShift 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 98px,
+        rgba(59, 130, 246, 0.02) 100px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 98px,
+        rgba(139, 92, 246, 0.02) 100px
+      );
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes backgroundShift {
+    0%, 100% {
+      background-position: 0% 0%, 100% 100%, 50% 50%, 25% 75%;
+    }
+    25% {
+      background-position: 25% 25%, 75% 75%, 75% 25%, 50% 50%;
+    }
+    50% {
+      background-position: 50% 50%, 50% 50%, 25% 75%, 75% 25%;
+    }
+    75% {
+      background-position: 75% 25%, 25% 75%, 0% 100%, 100% 0%;
+    }
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--medical-text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--medical-text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--medical-text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    h4 {
+      font-size: 1.375rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--medical-text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    h5 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--medical-text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    h6 {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--medical-text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--medical-text-light);
+      font-family: 'Noto Sans KR', 'Inter', sans-serif;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--medical-text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+
+    button {
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 1.5;
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    input, textarea, select {
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.5;
+      font-family: 'Noto Sans KR', 'Inter', sans-serif;
+    }
+
+    a {
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .medical-heading {
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--medical-text);
+    }
+
+    .medical-body {
+      font-family: 'Noto Sans KR', 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--medical-text-light);
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* 추가 의료 전용 타이포그래피 클래스 */
+@layer utilities {
+  .medical-title {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: var(--medical-text);
+  }
+
+  .medical-subtitle {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    color: var(--medical-text);
+  }
+
+  .medical-body-text {
+    font-family: 'Noto Sans KR', 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--medical-text-light);
+  }
+
+  .medical-caption {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--medical-text-light);
+  }
+
+  .medical-button-text {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+  }
+
+  /* 더 나은 가독성을 위한 단락 스타일 */
+  .medical-paragraph {
+    font-family: 'Noto Sans KR', 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--medical-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .medical-paragraph:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 강조 텍스트 */
+  .medical-emphasis {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    color: var(--medical-blue);
+  }
+
+  /* 숫자 및 통계 텍스트 */
+  .medical-number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-feature-settings: 'tnum' 1;
+    letter-spacing: -0.02em;
+  }
+}

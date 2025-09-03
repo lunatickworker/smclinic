@@ -10,17 +10,18 @@ import SupportSection from "./components/SupportSection";
 import Footer from "./components/Footer";
 import InvestmentProposalModal from "./components/InvestmentProposalModal";
 import PartnershipModal from "./components/PartnershipModal";
+
 import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   const [isInvestmentModalOpen, setIsInvestmentModalOpen] = useState(false);
   const [isPartnershipModalOpen, setIsPartnershipModalOpen] = useState(false);
 
+
   return (
     <div className="min-h-screen">
       <Header />
       <HeroSection 
-        onInvestmentClick={() => setIsInvestmentModalOpen(true)}
         onPartnershipClick={() => setIsPartnershipModalOpen(true)}
       />
       <FeaturesSection />
@@ -47,6 +48,7 @@ export default function App() {
         onClose={() => setIsPartnershipModalOpen(false)}
       />
       
+
       <Toaster />
     </div>
   );

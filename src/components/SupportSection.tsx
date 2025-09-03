@@ -171,7 +171,7 @@ export default function SupportSection() {
                 <MessageCircle className="w-8 h-8 text-purple-600" />
               </div>
               <h4 className="text-lg mb-2 text-gray-900">이메일 문의</h4>
-              <p className="text-gray-600 mb-4">support@easymedi.co.kr</p>
+              <p className="text-gray-600 mb-4">smclinic@easymedi.co.kr</p>
               <button className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
                 이메일 보내기
               </button>

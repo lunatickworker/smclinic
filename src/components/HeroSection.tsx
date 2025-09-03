@@ -3,11 +3,10 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Play, Star, ArrowRight, CheckCircle, Heart, Shield, Award } from "lucide-react";
 
 interface HeroSectionProps {
-  onInvestmentClick?: () => void;
   onPartnershipClick?: () => void;
 }
 
-export default function HeroSection({ onInvestmentClick, onPartnershipClick }: HeroSectionProps) {
+export default function HeroSection({ onPartnershipClick }: HeroSectionProps) {
   return (
     <section id="home" className="relative py-20 bg-gradient-to-br from-blue-50/50 via-white to-purple-50/30 overflow-hidden">
       {/* 배경 장식 요소들 */}
@@ -56,13 +55,15 @@ export default function HeroSection({ onInvestmentClick, onPartnershipClick }: H
                 <ArrowRight className="w-5 h-5" />
                 30일 무료체험 신청
               </a>
-              <button 
-                onClick={onInvestmentClick}
-                className="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-2xl border-2 border-blue-200 text-blue-600 hover:bg-blue-50 hover:border-blue-300 transition-all shadow-lg bg-white font-medium h-12"
+              <a 
+                href="http://ca-7777.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-2xl border-2 border-blue-200 text-blue-600 hover:bg-blue-50 hover:border-blue-300 transition-all shadow-lg bg-white font-medium h-12 no-underline"
               >
                 <Play className="w-5 h-5" />
-                투자 제안서 보기
-              </button>
+                데모사이트 보기
+              </a>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">

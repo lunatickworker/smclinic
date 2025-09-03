@@ -55,12 +55,12 @@ export default function Footer({
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-300">
                 <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span className="text-sm">02-1234-5678</span>
+                <span className="text-sm">070-5047-4420</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
                 <span className="text-sm">
-                  contact@easymedi.co.kr
+                  smclinic@easymedi.co.kr
                 </span>
               </div>
             </div>

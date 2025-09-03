@@ -18,9 +18,7 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Header />
-      <HeroSection 
-        onPartnershipClick={() => setIsPartnershipModalOpen(true)}
-      />
+      <HeroSection />
       <FeaturesSection />
       <PricingSection />
       <CasesSection />

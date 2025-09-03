@@ -104,13 +104,13 @@ export default function Footer({
                 href="https://invest-eight-psi.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium no-underline"
+                className="inline-flex items-center justify-center bg-white text-blue-600 px-4 sm:px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium no-underline whitespace-nowrap text-sm sm:text-base"
               >
                 투자 제안서
               </a>
               <button
                 onClick={onPartnershipClick}
-                className="inline-flex items-center justify-center border border-white text-gray-200 hover:text-blue-600 px-6 py-3 rounded-lg hover:bg-white transition-colors font-medium"
+                className="inline-flex items-center justify-center border border-white text-gray-200 hover:text-blue-600 px-4 sm:px-6 py-3 rounded-lg hover:bg-white transition-colors font-medium whitespace-nowrap text-sm sm:text-base"
               >
                 파트너 문의
               </button>

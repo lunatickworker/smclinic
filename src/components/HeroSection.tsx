@@ -1,141 +1,192 @@
+import { useState } from "react";
 import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { Play, Star, ArrowRight, CheckCircle, Heart, Shield, Award } from "lucide-react";
+import { Menu, Heart, Shield, Users, ChevronDown, Sparkles, Star, X } from "lucide-react";
 
-interface HeroSectionProps {
-  onPartnershipClick?: () => void;
-}
+export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-export default function HeroSection({ onPartnershipClick }: HeroSectionProps) {
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <section id="home" className="relative py-20 bg-gradient-to-br from-blue-50/50 via-white to-purple-50/30 overflow-hidden">
-      {/* 배경 장식 요소들 */}
-      <div className="absolute top-10 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-60 animate-pulse"></div>
-      <div className="absolute top-32 right-20 w-16 h-16 bg-purple-100 rounded-full opacity-40 animate-pulse delay-1000"></div>
-      <div className="absolute bottom-20 left-32 w-12 h-12 bg-green-100 rounded-full opacity-50 animate-pulse delay-500"></div>
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-lg shadow-lg border-b border-blue-100/50">
+      {/* 상단 알림 배너 */}
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-2 text-sm">
+        <div className="flex items-center justify-center space-x-2">
+          <Sparkles className="w-4 h-4" />
+          <span className="font-medium">🎉 병원 운영 혁신의 새로운 시작! 30일 무료체험으로 EasyMedi를 경험해보세요</span>
+          <Sparkles className="w-4 h-4" />
+        </div>
+      </div>
       
-      <div className="container mx-auto px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-10 lg:pr-8">
-            <div className="space-y-8">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-sm font-semibold shadow-lg">
-                <Star className="w-4 h-4 mr-2 text-yellow-500" />
-                소규모 의원 경영 혁신의 첫 걸음, EASYMEDI
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+          {/* 로고 및 브랜드 */}
+          <div className="flex items-center space-x-4">
+            <a href="#home" className="flex items-center space-x-4 no-underline group">
+              <div className="relative">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all transform group-hover:scale-105">
+                  <Heart className="w-7 h-7 text-white" />
+                </div>
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-green-400 to-green-500 rounded-full border-2 border-white animate-pulse"></div>
+                <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full border border-white"></div>
               </div>
-              
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                병원경영, <span className="text-blue-600">더 이상 혼자</span>
-                <br />
-                <span className="text-gray-700">고민하지 마세요.</span>
-              </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
-                개인의원과 소규모 병원을 위한 최적의 경영 파트너, EASYMEDI는 의료진이 환자 진료에 집중할 수 있도록 
-                의원 운영의 모든 측면을 자동화하고, 데이터 기반 마케팅과 보안까지 함께 책임집니다.
-              </p>
-              
-              <div className="grid grid-cols-3 gap-4 max-w-lg">
-                <div className="text-center p-4 bg-white rounded-2xl shadow-lg border border-blue-100">
-                  <div className="text-2xl font-bold text-blue-600">500+</div>
-                  <div className="text-sm text-gray-600">도입 의원</div>
+              <div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  EasyMedi
                 </div>
-                <div className="text-center p-4 bg-white rounded-2xl shadow-lg border border-green-100">
-                  <div className="text-2xl font-bold text-green-600">98%</div>
-                  <div className="text-sm text-gray-600">만족도</div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-2xl shadow-lg border border-purple-100">
-                  <div className="text-2xl font-bold text-purple-600">24/7</div>
-                  <div className="text-sm text-gray-600">지원</div>
+                <div className="text-xs text-blue-500 -mt-1 font-semibold tracking-wide">
+                  HOSPITAL SOLUTION
                 </div>
               </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#trial" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-white font-medium h-12 no-underline">
-                <ArrowRight className="w-5 h-5" />
-                30일 무료체험 신청
-              </a>
-              <a 
-                href="http://ca-7777.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-2xl border-2 border-blue-200 text-blue-600 hover:bg-blue-50 hover:border-blue-300 transition-all shadow-lg bg-white font-medium h-12 no-underline"
-              >
-                <Play className="w-5 h-5" />
-                데모사이트 보기
-              </a>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="flex items-center space-x-3 p-3 bg-white rounded-xl shadow-md">
-                <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="text-sm font-medium text-gray-700">설치비, 교육비 무료</span>
-              </div>
-              <div className="flex items-center space-x-3 p-3 bg-white rounded-xl shadow-md">
-                <Shield className="w-5 h-5 text-blue-500" />
-                <span className="text-sm font-medium text-gray-700">의료진 전담 지원</span>
-              </div>
-            </div>
+            </a>
           </div>
+          
+          {/* 네비게이션 메뉴 */}
+          <nav className="hidden lg:flex items-center space-x-1">
+            <a href="#home" className="group relative px-4 py-2 rounded-xl text-gray-700 hover:text-blue-600 transition-all font-semibold hover:bg-blue-50/70">
+              <span className="relative z-10">소개</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            
+            <a href="#features" className="group relative px-4 py-2 rounded-xl text-gray-700 hover:text-blue-600 transition-all font-semibold hover:bg-blue-50/70">
+              <span className="relative z-10 flex items-center space-x-1">
+                <span>솔루션</span>
+                <Star className="w-3 h-3 text-yellow-500" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            
+            <a href="#cases" className="group relative px-4 py-2 rounded-xl text-gray-700 hover:text-blue-600 transition-all font-semibold hover:bg-blue-50/70">
+              <span className="relative z-10">고객사례</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            
+            <a href="#pricing" className="group relative px-4 py-2 rounded-xl text-gray-700 hover:text-blue-600 transition-all font-semibold hover:bg-blue-50/70">
+              <span className="relative z-10">요금제</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            
+            <a href="#trial" className="group relative px-4 py-2 rounded-xl text-gray-700 hover:text-blue-600 transition-all font-semibold hover:bg-blue-50/70">
+              <span className="relative z-10 flex items-center space-x-1">
+                <span>무료체험</span>
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            
+            <a href="#support" className="group relative px-4 py-2 rounded-xl text-gray-700 hover:text-blue-600 transition-all font-semibold hover:bg-blue-50/70">
+              <span className="relative z-10">고객지원</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+          </nav>
 
-          <div className="relative lg:pl-8">
-            {/* 메인 3D 스타일 의사 일러스트 영역 */}
-            <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 shadow-2xl border border-blue-100">
-              <div className="text-center space-y-6">
-                {/* 3D 스타일 의사 아이콘 */}
-                <div className="relative mx-auto w-64 h-64 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-2xl">
-                  <div className="w-48 h-48 bg-white rounded-full flex items-center justify-center shadow-inner">
-                    <div className="text-8xl">👨‍⚕️</div>
-                  </div>
-                  
-                  {/* 플로팅 아이콘들 */}
-                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center shadow-lg animate-bounce">
-                    <Heart className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  <div className="absolute -bottom-2 -left-6 w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center shadow-lg animate-pulse">
-                    <Shield className="w-7 h-7 text-white" />
-                  </div>
-                  
-                  <div className="absolute top-8 -left-8 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
-                    <Award className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-gray-800">소규모 의원을 위한 최적의 경영 파트너</h3>
-                  <p className="text-gray-600">의료진이 환자 진료에 집중할 수 있도록</p>
-                </div>
-              </div>
-            </div>
+          {/* 우측 액션 버튼들 */}
+          <div className="flex items-center space-x-3">
+            <a href="#trial" className="hidden sm:flex items-center justify-center gap-2 border-2 border-blue-200 text-blue-600 hover:bg-blue-50 hover:border-blue-300 rounded-full px-6 py-2.5 text-sm font-semibold transition-all bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg no-underline group">
+              <div className="w-2 h-2 bg-blue-600 rounded-full group-hover:animate-pulse"></div>
+              무료 체험 신청
+            </a>
             
-            {/* 부가 정보 카드들 */}
-            <div className="absolute -bottom-8 -left-4 bg-white border border-blue-200 p-4 rounded-2xl shadow-xl">
-              <div className="flex items-center space-x-3">
-                <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
-                <div>
-                  <div className="text-sm font-bold text-gray-900">실시간 운영</div>
-                  <div className="text-xs text-gray-500">24시간 안정성</div>
-                </div>
-              </div>
-            </div>
+            <a href="#support" className="hidden md:inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 rounded-full px-6 py-2.5 shadow-xl hover:shadow-2xl transition-all text-white text-sm font-semibold no-underline transform hover:scale-105 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <Heart className="w-4 h-4 relative z-10" />
+              <span className="relative z-10">상담 문의하기</span>
+            </a>
             
-            <div className="absolute -top-8 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-2xl shadow-xl">
-              <div className="text-center">
-                <div className="text-2xl font-bold">98%</div>
-                <div className="text-xs opacity-90">만족도</div>
-              </div>
-            </div>
-            
-            <div className="absolute top-1/2 -left-8 bg-gradient-to-r from-green-500 to-green-600 text-white p-3 rounded-xl shadow-lg transform -translate-y-1/2">
-              <div className="text-center">
-                <div className="text-lg font-bold">500+</div>
-                <div className="text-xs opacity-90">도입 의원</div>
-              </div>
-            </div>
+            <button 
+              onClick={toggleMobileMenu}
+              className="lg:hidden p-3 rounded-xl hover:bg-gray-100 transition-colors shadow-md"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5 text-gray-600" />
+              ) : (
+                <Menu className="w-5 h-5 text-gray-600" />
+              )}
+            </button>
           </div>
         </div>
       </div>
-    </section>
+
+      {/* 모바일 메뉴 */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-lg border-t border-blue-100/50 shadow-xl">
+          <div className="container mx-auto px-6 py-6">
+            <nav className="space-y-4">
+              <a 
+                href="#home" 
+                onClick={closeMobileMenu}
+                className="block px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                소개
+              </a>
+              
+              <a 
+                href="#features" 
+                onClick={closeMobileMenu}
+                className="flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                <span className="flex items-center space-x-2">
+                  <span>솔루션</span>
+                  <Star className="w-3 h-3 text-yellow-500" />
+                </span>
+              </a>
+              
+              <a 
+                href="#cases" 
+                onClick={closeMobileMenu}
+                className="block px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                고객사례
+              </a>
+              
+              <a 
+                href="#pricing" 
+                onClick={closeMobileMenu}
+                className="block px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                요금제
+              </a>
+              
+              <a 
+                href="#trial" 
+                onClick={closeMobileMenu}
+                className="flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                <span className="flex items-center space-x-2">
+                  <span>무료체험</span>
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                </span>
+              </a>
+              
+              <a 
+                href="#support" 
+                onClick={closeMobileMenu}
+                className="block px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                고객지원
+              </a>
+              
+              {/* 모바일에서만 보이는 상담문의 버튼 */}
+              <div className="pt-4 border-t border-blue-100">
+                <a 
+                  href="#support" 
+                  onClick={closeMobileMenu}
+                  className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 rounded-xl px-6 py-3 shadow-xl transition-all text-white font-semibold no-underline w-full"
+                >
+                  <Heart className="w-4 h-4" />
+                  상담 문의하기
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

@@ -1,7 +1,18 @@
+import { useState } from "react";
 import { Button } from "./ui/button";
-import { Menu, Heart, Shield, Users, ChevronDown, Sparkles, Star } from "lucide-react";
+import { Menu, Heart, Shield, Users, ChevronDown, Sparkles, Star, X } from "lucide-react";
 
 export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-lg shadow-lg border-b border-blue-100/50">
       {/* 상단 알림 배너 */}
@@ -82,18 +93,100 @@ export default function Header() {
               무료 체험 신청
             </a>
             
-            <a href="#support" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 rounded-full px-6 py-2.5 shadow-xl hover:shadow-2xl transition-all text-white text-sm font-semibold no-underline transform hover:scale-105 relative overflow-hidden group">
+            <a href="#support" className="hidden md:inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 rounded-full px-6 py-2.5 shadow-xl hover:shadow-2xl transition-all text-white text-sm font-semibold no-underline transform hover:scale-105 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
               <Heart className="w-4 h-4 relative z-10" />
               <span className="relative z-10">상담 문의하기</span>
             </a>
             
-            <button className="lg:hidden p-3 rounded-xl hover:bg-gray-100 transition-colors shadow-md">
-              <Menu className="w-5 h-5 text-gray-600" />
+            <button 
+              onClick={toggleMobileMenu}
+              className="lg:hidden p-3 rounded-xl hover:bg-gray-100 transition-colors shadow-md"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5 text-gray-600" />
+              ) : (
+                <Menu className="w-5 h-5 text-gray-600" />
+              )}
             </button>
           </div>
         </div>
       </div>
+
+      {/* 모바일 메뉴 */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-lg border-t border-blue-100/50 shadow-xl">
+          <div className="container mx-auto px-6 py-6">
+            <nav className="space-y-4">
+              <a 
+                href="#home" 
+                onClick={closeMobileMenu}
+                className="block px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                소개
+              </a>
+              
+              <a 
+                href="#features" 
+                onClick={closeMobileMenu}
+                className="flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                <span className="flex items-center space-x-2">
+                  <span>솔루션</span>
+                  <Star className="w-3 h-3 text-yellow-500" />
+                </span>
+              </a>
+              
+              <a 
+                href="#cases" 
+                onClick={closeMobileMenu}
+                className="block px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                고객사례
+              </a>
+              
+              <a 
+                href="#pricing" 
+                onClick={closeMobileMenu}
+                className="block px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                요금제
+              </a>
+              
+              <a 
+                href="#trial" 
+                onClick={closeMobileMenu}
+                className="flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                <span className="flex items-center space-x-2">
+                  <span>무료체험</span>
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                </span>
+              </a>
+              
+              <a 
+                href="#support" 
+                onClick={closeMobileMenu}
+                className="block px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all font-semibold"
+              >
+                고객지원
+              </a>
+              
+              {/* 모바일에서만 보이는 상담문의 버튼 */}
+              <div className="pt-4 border-t border-blue-100">
+                <a 
+                  href="#support" 
+                  onClick={closeMobileMenu}
+                  className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 rounded-xl px-6 py-3 shadow-xl transition-all text-white font-semibold no-underline w-full"
+                >
+                  <Heart className="w-4 h-4" />
+                  상담 문의하기
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

@@ -52,11 +52,10 @@ const marketData = [
 ];
 
 interface InvestmentSectionProps {
-  onInvestmentClick?: () => void;
   onPartnershipClick?: () => void;
 }
 
-export default function InvestmentSection({ onInvestmentClick, onPartnershipClick }: InvestmentSectionProps) {
+export default function InvestmentSection({ onPartnershipClick }: InvestmentSectionProps) {
   const [formData, setFormData] = useState({
     companyName: "",
     contactName: "",
@@ -158,13 +157,14 @@ export default function InvestmentSection({ onInvestmentClick, onPartnershipClic
 
         {/* CTA 버튼들 */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-          <Button 
-            size="lg" 
-            className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4"
-            onClick={onInvestmentClick}
+          <a
+            href="https://invest-eight-psi.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4 rounded-lg text-white font-medium transition-colors no-underline"
           >
             📄 투자 제안서 보기
-          </Button>
+          </a>
           <Button 
             size="lg" 
             variant="outline" 

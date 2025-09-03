@@ -105,11 +105,11 @@ export default function Footer({ onInvestmentClick, onPartnershipClick }: Footer
         {/* 하단 저작권 정보 */}
         <div className="border-t border-gray-800 pt-8 text-center">
           <div className="text-sm text-gray-400 mb-4">
-            © 2024 EasyMedi Co., Ltd. All rights reserved.
+            © 2025 EasyMedi Co., Ltd. All rights reserved.
           </div>
           
           <div className="text-xs text-gray-500">
-            <p>사업자등록번호: 123-45-67890 | 대표: 홍길동 | 통신판매신고: 2024-서울강남-1234</p>
+            <p>사업자등록번호: 718-01-01669 | 대표: 조석만 | 통신판매신고: 2020-화성동탄-0712</p>
             <p className="mt-2">본 사이트는 병원 관리 솔루션 정보 제공을 목적으로 하며, 의료진의 진료를 대체할 수 없습니다.</p>
           </div>
         </div>

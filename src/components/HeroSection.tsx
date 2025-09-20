@@ -92,7 +92,7 @@ export default function HeroSection({
               </a>
               <div className="flex gap-2">
                 <a
-                  href="http://ca-7777.com"
+                  href="https://dazzle-nebula-26634395.figma.site/adminm"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 text-sm sm:text-lg px-4 sm:px-6 py-4 rounded-2xl border-2 border-blue-200 text-blue-600 hover:bg-blue-50 hover:border-blue-300 transition-all shadow-lg bg-white font-medium h-12 no-underline whitespace-nowrap"
